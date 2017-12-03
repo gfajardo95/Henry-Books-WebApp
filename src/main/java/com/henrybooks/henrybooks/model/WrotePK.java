@@ -1,4 +1,4 @@
-package models;
+package com.henrybooks.henrybooks.model;
 
 import javax.persistence.Column;
 import javax.persistence.Id;

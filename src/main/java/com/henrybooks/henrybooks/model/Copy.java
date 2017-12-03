@@ -1,4 +1,4 @@
-package models;
+package com.henrybooks.henrybooks.model;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
