@@ -7,7 +7,11 @@
         $routeProvider
             .when('/', {
                 templateUrl: 'html/home.html',
-                controller: 'HomeCtrl'
+                controller: ''
+            })
+            .when('/book-manager', {
+                templateUrl: 'html/books.html',
+                controller: 'BookCtrl'
             })
             .otherwise({
                 redirectTo: '/'
