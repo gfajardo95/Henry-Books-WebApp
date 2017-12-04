@@ -24,8 +24,11 @@ public class BookController {
         src/main/java/org/springframework/data/jpa/repository/support/
         SimpleJpaRepository.java for the implementation*/
         if (bookRepo.findOne(book.getBookCode()) == null){
-            bookRepo.save(book);
-            return ResponseEntity.ok(book);
+            int status = bookRepo.createOne(book.getBookCode(), book.getTitle(), book.getPublisherCode(),
+                    book.getType(), book.getPaperback());
+            if (status == 1){
+                return ResponseEntity.ok(book);
+            }
         }
         //book already exists
         return ResponseEntity.badRequest().build();

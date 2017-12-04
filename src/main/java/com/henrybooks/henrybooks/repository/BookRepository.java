@@ -14,9 +14,11 @@ public interface BookRepository extends JpaRepository<Book, String> {
 
     @Modifying
     @Transactional
-    @Query(value = "DELETE FROM book " +
-            "WHERE book.bookCode = :id", nativeQuery = true)
-    void deleteOne(@Param("id") String id);
+    @Query(value = "INSERT INTO book " +
+            "VALUES (:bcode, :title, :pcode, :type, :paperback)", nativeQuery = true)
+    int createOne(@Param("bcode") String bcode, @Param("title") String title,
+                  @Param("pcode") String pcode, @Param("type") String type,
+                  @Param("paperback") String paperback);
 
     @Modifying
     @Transactional
@@ -26,4 +28,10 @@ public interface BookRepository extends JpaRepository<Book, String> {
     int updateOne(@Param("bcode") String bcode, @Param("title") String title,
                    @Param("pcode") String pcode, @Param("type") String type,
                    @Param("paperback") String paperback);
+
+    @Modifying
+    @Transactional
+    @Query(value = "DELETE FROM book " +
+            "WHERE book.bookCode = :id", nativeQuery = true)
+    void deleteOne(@Param("id") String id);
 }
