@@ -1,6 +1,6 @@
-package com.henrybooks.henrybooks.repository;
+package com.henrybooks.repository;
 
-import com.henrybooks.henrybooks.model.Author;
+import com.henrybooks.model.Author;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

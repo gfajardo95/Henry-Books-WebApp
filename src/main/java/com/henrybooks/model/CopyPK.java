@@ -1,13 +1,14 @@
-package com.henrybooks.henrybooks.model;
+package com.henrybooks.model;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
 import java.io.Serializable;
 import java.math.BigInteger;
 
-public class InventoryPK implements Serializable {
+public class CopyPK implements Serializable {
     private String bookCode;
     private BigInteger branchNum;
+    private BigInteger copyNum;
 
     @Column(name = "bookcode")
     @Id
@@ -29,15 +30,26 @@ public class InventoryPK implements Serializable {
         this.branchNum = branchNum;
     }
 
+    @Column(name = "copynum")
+    @Id
+    public BigInteger getCopyNum() {
+        return copyNum;
+    }
+
+    public void setCopyNum(BigInteger copyNum) {
+        this.copyNum = copyNum;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        InventoryPK that = (InventoryPK) o;
+        CopyPK copyPK = (CopyPK) o;
 
-        if (bookCode != null ? !bookCode.equals(that.bookCode) : that.bookCode != null) return false;
-        if (branchNum != null ? !branchNum.equals(that.branchNum) : that.branchNum != null) return false;
+        if (bookCode != null ? !bookCode.equals(copyPK.bookCode) : copyPK.bookCode != null) return false;
+        if (branchNum != null ? !branchNum.equals(copyPK.branchNum) : copyPK.branchNum != null) return false;
+        if (copyNum != null ? !copyNum.equals(copyPK.copyNum) : copyPK.copyNum != null) return false;
 
         return true;
     }
@@ -46,6 +58,7 @@ public class InventoryPK implements Serializable {
     public int hashCode() {
         int result = bookCode != null ? bookCode.hashCode() : 0;
         result = 31 * result + (branchNum != null ? branchNum.hashCode() : 0);
+        result = 31 * result + (copyNum != null ? copyNum.hashCode() : 0);
         return result;
     }
 }

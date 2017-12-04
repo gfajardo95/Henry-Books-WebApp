@@ -1,13 +1,11 @@
-package com.henrybooks.henrybooks.controller;
+package com.henrybooks.controller;
 
-import com.henrybooks.henrybooks.model.Book;
-import com.henrybooks.henrybooks.repository.BookRepository;
+import com.henrybooks.model.Book;
+import com.henrybooks.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
-import javax.xml.ws.Response;
 import java.util.List;
 
 @RestController
@@ -46,6 +44,11 @@ public class BookController {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok().body(book);
+    }
+
+    @GetMapping("/book-stats/{title}")
+    public List getBookStats (@PathVariable("title") String title){
+        return bookRepo.getBookStatsByTitle(title);
     }
 
     @PutMapping("/books/{id}")

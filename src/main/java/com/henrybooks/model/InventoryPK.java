@@ -1,13 +1,13 @@
-package com.henrybooks.henrybooks.model;
+package com.henrybooks.model;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
 import java.io.Serializable;
 import java.math.BigInteger;
 
-public class WrotePK implements Serializable {
+public class InventoryPK implements Serializable {
     private String bookCode;
-    private BigInteger authorNum;
+    private BigInteger branchNum;
 
     @Column(name = "bookcode")
     @Id
@@ -19,14 +19,14 @@ public class WrotePK implements Serializable {
         this.bookCode = bookCode;
     }
 
-    @Column(name = "authornum")
+    @Column(name = "branchnum")
     @Id
-    public BigInteger getAuthorNum() {
-        return authorNum;
+    public BigInteger getBranchNum() {
+        return branchNum;
     }
 
-    public void setAuthorNum(BigInteger authorNum) {
-        this.authorNum = authorNum;
+    public void setBranchNum(BigInteger branchNum) {
+        this.branchNum = branchNum;
     }
 
     @Override
@@ -34,10 +34,10 @@ public class WrotePK implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        WrotePK wrotePK = (WrotePK) o;
+        InventoryPK that = (InventoryPK) o;
 
-        if (bookCode != null ? !bookCode.equals(wrotePK.bookCode) : wrotePK.bookCode != null) return false;
-        if (authorNum != null ? !authorNum.equals(wrotePK.authorNum) : wrotePK.authorNum != null) return false;
+        if (bookCode != null ? !bookCode.equals(that.bookCode) : that.bookCode != null) return false;
+        if (branchNum != null ? !branchNum.equals(that.branchNum) : that.branchNum != null) return false;
 
         return true;
     }
@@ -45,7 +45,7 @@ public class WrotePK implements Serializable {
     @Override
     public int hashCode() {
         int result = bookCode != null ? bookCode.hashCode() : 0;
-        result = 31 * result + (authorNum != null ? authorNum.hashCode() : 0);
+        result = 31 * result + (branchNum != null ? branchNum.hashCode() : 0);
         return result;
     }
 }

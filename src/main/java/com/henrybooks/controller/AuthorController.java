@@ -1,9 +1,8 @@
-package com.henrybooks.henrybooks.controller;
+package com.henrybooks.controller;
 
-import com.henrybooks.henrybooks.model.Author;
-import com.henrybooks.henrybooks.repository.AuthorRepository;
+import com.henrybooks.model.Author;
+import com.henrybooks.repository.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

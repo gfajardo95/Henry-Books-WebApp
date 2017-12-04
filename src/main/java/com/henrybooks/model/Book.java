@@ -1,4 +1,4 @@
-package com.henrybooks.henrybooks.model;
+package com.henrybooks.model;
 
 import javax.persistence.*;
 
