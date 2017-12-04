@@ -52,13 +52,14 @@ public class BookController {
             return ResponseEntity.notFound().build();
         }
 
-        book.setTitle(bookDetails.getTitle());
-        book.setPublisherCode(bookDetails.getPublisherCode());
-        book.setType(bookDetails.getType());
-        book.setPaperback(bookDetails.getPaperback());
-        bookRepo.save(book);
+        int status = bookRepo.updateOne(bookCode, bookDetails.getTitle(), bookDetails.getPublisherCode(),
+                bookDetails.getType(), bookDetails.getPaperback());
+        if (status == 1){
+            bookDetails.setBookCode(bookCode);
+            return ResponseEntity.ok(bookDetails);
+        }
 
-        return ResponseEntity.ok(book);
+        return ResponseEntity.badRequest().build();
     }
 
     @DeleteMapping("/books/{id}")

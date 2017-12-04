@@ -17,4 +17,13 @@ public interface BookRepository extends JpaRepository<Book, String> {
     @Query(value = "DELETE FROM book " +
             "WHERE book.bookCode = :id", nativeQuery = true)
     void deleteOne(@Param("id") String id);
+
+    @Modifying
+    @Transactional
+    @Query(value = "UPDATE book " +
+            "SET title = :title, publisherCode = :pcode, type = :type, paperback = :paperback " +
+            "WHERE bookCode = :bcode", nativeQuery = true)
+    int updateOne(@Param("bcode") String bcode, @Param("title") String title,
+                   @Param("pcode") String pcode, @Param("type") String type,
+                   @Param("paperback") String paperback);
 }
