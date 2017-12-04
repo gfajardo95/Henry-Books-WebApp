@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 
 @Entity
+@Table(name="copy")
 @IdClass(CopyPK.class)
 public class Copy {
     private String bookCode;
@@ -14,7 +15,7 @@ public class Copy {
     private BigDecimal price;
 
     @Id
-    @Column(name = "bookCode")
+    @Column(name = "bookcode")
     public String getBookCode() {
         return bookCode;
     }
@@ -24,7 +25,7 @@ public class Copy {
     }
 
     @Id
-    @Column(name = "branchNum")
+    @Column(name = "branchnum")
     public BigInteger getBranchNum() {
         return branchNum;
     }
@@ -34,7 +35,7 @@ public class Copy {
     }
 
     @Id
-    @Column(name = "copyNum")
+    @Column(name = "copynum")
     public BigInteger getCopyNum() {
         return copyNum;
     }

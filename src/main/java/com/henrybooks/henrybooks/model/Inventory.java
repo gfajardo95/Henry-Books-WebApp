@@ -11,7 +11,7 @@ public class Inventory {
     private BigInteger onHand;
 
     @Id
-    @Column(name = "BookCode")
+    @Column(name = "bookcode")
     public String getBookCode() {
         return bookCode;
     }
@@ -21,7 +21,7 @@ public class Inventory {
     }
 
     @Id
-    @Column(name = "BranchNum")
+    @Column(name = "branchnum")
     public BigInteger getBranchNum() {
         return branchNum;
     }
@@ -31,7 +31,7 @@ public class Inventory {
     }
 
     @Basic
-    @Column(name = "OnHand")
+    @Column(name = "onhand")
     public BigInteger getOnHand() {
         return onHand;
     }

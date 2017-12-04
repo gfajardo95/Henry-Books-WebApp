@@ -1,19 +1,24 @@
 package com.henrybooks.henrybooks.model;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.math.BigInteger;
 
 @Entity
+@Table(name="author")
 public class Author {
-    private BigInteger authorNum;
-    private String authorLast;
-    private String authorFirst;
 
     @Id
-    @Column(name = "authorNum")
+    @Column(name = "authornum")
+    private BigInteger authorNum;
+
+    @Basic
+    @Column(name = "authorlast")
+    private String authorLast;
+
+    @Basic
+    @Column(name = "authorfirst")
+    private String authorFirst;
+
     public BigInteger getAuthorNum() {
         return authorNum;
     }
@@ -22,8 +27,6 @@ public class Author {
         this.authorNum = authorNum;
     }
 
-    @Basic
-    @Column(name = "authorLast")
     public String getAuthorLast() {
         return authorLast;
     }
@@ -32,8 +35,6 @@ public class Author {
         this.authorLast = authorLast;
     }
 
-    @Basic
-    @Column(name = "authorFirst")
     public String getAuthorFirst() {
         return authorFirst;
     }

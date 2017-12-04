@@ -12,7 +12,7 @@ public class Publisher {
     private String city;
 
     @Id
-    @Column(name = "publisherCode")
+    @Column(name = "publishercode")
     public String getPublisherCode() {
         return publisherCode;
     }
@@ -22,7 +22,7 @@ public class Publisher {
     }
 
     @Basic
-    @Column(name = "publisherName")
+    @Column(name = "publishername")
     public String getPublisherName() {
         return publisherName;
     }

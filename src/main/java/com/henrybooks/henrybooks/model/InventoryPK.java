@@ -9,7 +9,7 @@ public class InventoryPK implements Serializable {
     private String bookCode;
     private BigInteger branchNum;
 
-    @Column(name = "BookCode")
+    @Column(name = "bookcode")
     @Id
     public String getBookCode() {
         return bookCode;
@@ -19,7 +19,7 @@ public class InventoryPK implements Serializable {
         this.bookCode = bookCode;
     }
 
-    @Column(name = "BranchNum")
+    @Column(name = "branchnum")
     @Id
     public BigInteger getBranchNum() {
         return branchNum;

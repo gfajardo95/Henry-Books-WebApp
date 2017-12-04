@@ -1,20 +1,25 @@
 package com.henrybooks.henrybooks.model;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "book")
 public class Book {
+
+    @Id
+    @Column(name = "bookcode", columnDefinition = "CHAR", length = 4)
     private String bookCode;
+
+    @Basic
+    @Column(name = "title", columnDefinition = "CHAR", length = 40)
     private String title;
+
+    @Basic
+    @Column(name = "publishercode")
     private String publisherCode;
     private String type;
     private String paperback;
 
-    @Id
-    @Column(name = "bookCode")
     public String getBookCode() {
         return bookCode;
     }
@@ -23,8 +28,6 @@ public class Book {
         this.bookCode = bookCode;
     }
 
-    @Basic
-    @Column(name = "title")
     public String getTitle() {
         return title;
     }
@@ -33,8 +36,6 @@ public class Book {
         this.title = title;
     }
 
-    @Basic
-    @Column(name = "publisherCode")
     public String getPublisherCode() {
         return publisherCode;
     }

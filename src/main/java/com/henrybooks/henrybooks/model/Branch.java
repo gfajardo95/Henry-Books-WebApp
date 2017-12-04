@@ -13,7 +13,7 @@ public class Branch {
     private String branchLocation;
 
     @Id
-    @Column(name = "branchNum")
+    @Column(name = "branchnum")
     public BigInteger getBranchNum() {
         return branchNum;
     }
@@ -23,7 +23,7 @@ public class Branch {
     }
 
     @Basic
-    @Column(name = "branchName")
+    @Column(name = "branchname")
     public String getBranchName() {
         return branchName;
     }
@@ -33,7 +33,7 @@ public class Branch {
     }
 
     @Basic
-    @Column(name = "branchLocation")
+    @Column(name = "branchlocation")
     public String getBranchLocation() {
         return branchLocation;
     }

@@ -9,7 +9,7 @@ public class WrotePK implements Serializable {
     private String bookCode;
     private BigInteger authorNum;
 
-    @Column(name = "bookCode")
+    @Column(name = "bookcode")
     @Id
     public String getBookCode() {
         return bookCode;
@@ -19,7 +19,7 @@ public class WrotePK implements Serializable {
         this.bookCode = bookCode;
     }
 
-    @Column(name = "authorNum")
+    @Column(name = "authornum")
     @Id
     public BigInteger getAuthorNum() {
         return authorNum;

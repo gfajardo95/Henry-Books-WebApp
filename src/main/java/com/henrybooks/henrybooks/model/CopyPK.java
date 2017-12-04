@@ -10,7 +10,7 @@ public class CopyPK implements Serializable {
     private BigInteger branchNum;
     private BigInteger copyNum;
 
-    @Column(name = "bookCode")
+    @Column(name = "bookcode")
     @Id
     public String getBookCode() {
         return bookCode;
@@ -20,7 +20,7 @@ public class CopyPK implements Serializable {
         this.bookCode = bookCode;
     }
 
-    @Column(name = "branchNum")
+    @Column(name = "branchnum")
     @Id
     public BigInteger getBranchNum() {
         return branchNum;
@@ -30,7 +30,7 @@ public class CopyPK implements Serializable {
         this.branchNum = branchNum;
     }
 
-    @Column(name = "copyNum")
+    @Column(name = "copynum")
     @Id
     public BigInteger getCopyNum() {
         return copyNum;

@@ -11,7 +11,7 @@ public class Wrote {
     private BigInteger sequence;
 
     @Id
-    @Column(name = "bookCode")
+    @Column(name = "bookcode")
     public String getBookCode() {
         return bookCode;
     }
@@ -21,7 +21,7 @@ public class Wrote {
     }
 
     @Id
-    @Column(name = "authorNum")
+    @Column(name = "authornum")
     public BigInteger getAuthorNum() {
         return authorNum;
     }
