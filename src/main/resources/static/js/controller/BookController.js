@@ -6,6 +6,24 @@
     app.controller('BookCtrl', ['$scope', 'books', 'book', function($scope, books, book){
         $scope.editing = false;
 
+        $scope.createInit = function(){
+            $scope.editing = true;
+            $scope.creating = true;
+        };
+
+        $scope.updateInit = function(currBook){
+            $scope.editing = true;
+            $scope.updating = true;
+            $scope.book = currBook;
+        };
+
+        var crudFinally = function() {
+            $scope.editing = false;
+            $scope.creating = false;
+            $scope.updating = false;
+            $scope.book = {};
+        };
+
         var onCreateSuccess = function(){
             getBooks();
         };
@@ -14,13 +32,28 @@
             console.log(reason);
         };
 
-        $scope.createBook = function(){
+        var createBook = function(){
             books.create($scope.book).$promise
                 .then(onCreateSuccess, onCreateError)
-                .finally(function(){
-                    $scope.editing = false;
-                    $scope.book = {};
-                })
+                .finally(crudFinally);
+        };
+
+        var updateBook = function(){
+            book.update({id: $scope.book.bookCode}, $scope.book)
+                .$promise
+                .finally(crudFinally);
+        };
+
+        $scope.createUpdateBook = function(){
+            if (book.show({id: $scope.book.bookCode}) === undefined){
+                createBook();
+            }else{
+                updateBook();
+            }
+        };
+
+        var getBooks = function(){
+            $scope.books = books.query();
         };
 
         $scope.deleteBook = function(currBook){
@@ -29,14 +62,6 @@
                 .finally(function(){
                     getBooks();
                 });
-        };
-
-        $scope.createInit = function(){
-            $scope.editing = true;
-        };
-
-        var getBooks = function(){
-            $scope.books = books.query();
         };
 
         getBooks();
