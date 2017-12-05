@@ -45,11 +45,9 @@
         };
 
         $scope.createUpdateBook = function(){
-            if (book.show({id: $scope.book.bookCode}) === undefined){
-                createBook();
-            }else{
-                updateBook();
-            }
+            var storedBook = book.show({id: $scope.book.bookCode})
+                .$promise
+                .then(updateBook, createBook);
         };
 
         var getBooks = function(){
