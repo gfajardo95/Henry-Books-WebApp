@@ -12,10 +12,10 @@
         });
     });
 
-    services.factory('book', [function ($resource) {
+    services.factory('book', function ($resource) {
         return $resource(baseUrl + '/:id', {}, {
             update: {method: 'PUT', params: {id: '@id'}},
             delete: {method: 'DELETE', params: {id: '@id'}}
         });
-    }]);
+    });
 }());
