@@ -3,7 +3,9 @@
 
     var app = angular.module('hb');
 
-    app.controller('BookCtrl', ['$scope', 'books', function($scope, books){
+    app.controller('BookCtrl', ['$scope', 'books', 'book', function($scope, books, book){
+        $scope.editing = false;
+
         var onCreateSuccess = function(){
             getBooks();
         };
@@ -19,6 +21,14 @@
                     $scope.editing = false;
                     $scope.book = {};
                 })
+        };
+
+        $scope.deleteBook = function(currBook){
+            book.delete({id: currBook.bookCode})
+                .$promise
+                .finally(function(){
+                    getBooks();
+                });
         };
 
         $scope.createInit = function(){
